@@ -1,4 +1,5 @@
 var express = require('express');
+var color = require('cli-color');
 
 /* load configurations */
 
@@ -29,7 +30,7 @@ router.get('/v1', function(req, res) {
 
 /* GET /api/v1/sites */
 
-router.get('/v1/sites/:id/:year?*/:month?*/:day?*', function(req,res) {
+router.get('/v1/sites/:id/:year?/:month?/:day?/', function(req,res) {
 	console.log('Receive request for site with id '+req.params.id+' and data from '+req.params.day+'/'+req.params.month+'/'+req.params.year);
 	
 	res.writeHead(200, {"Content-Type": "application/json"});
@@ -56,7 +57,7 @@ router.get('/v1/sites/:id/:year?*/:month?*/:day?*', function(req,res) {
 			result = rows;
 
 		} catch (error) {
-			console.error("Error occured: "+error.type+":"+error.message);
+			console.error(color.red("Error occured: "+error.type+":"+error.message));
 			result = error;
 		} finally {
 

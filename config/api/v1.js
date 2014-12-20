@@ -24,21 +24,12 @@ apiv1.sites.push({
 			desc : "A supposedly unique PIN associated with the site. This is used to match the site in FFS's database with DHS's own."
 		},
 		{
-			name : "type",
-			type : "object",
-			desc : "Site type",
-			fields : [
-				{
-					name : "id",
-					type : "int",
-					desc : "A unique id for site type"
-				},
-				{
-					name : "name",
-					type : "string",
-					desc : "Human readable site type"
-				}
-			]
+			name : "site_type",
+			type : "string"
+		},
+		{
+			name : "site_type_id",
+			type : "int"
 		},
 		{
 			name : "address",

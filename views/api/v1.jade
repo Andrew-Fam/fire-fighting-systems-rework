@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+ h1 FireFightingSystems API
+ p Version 1
+
+ h2 Sites
+ ul
+  each endpoint in apiconf.sites
+   li(id=endpoint.id)
+    h3 #{endpoint.action} #{endpoint.syntax}
+    p #{endpoint.desc}
+    h4 Returns:
+    ul
+     each field in endpoint.fields
+      li 
+       label #{field.name}
+       | : #{field.type} - #{field.desc}

@@ -36,7 +36,7 @@ router.get('/v1/sites/:id/:year?/:month?/:day?/', function(req,res) {
 	res.writeHead(200, {"Content-Type": "application/json"});
 
 
-	var query = 'SELECT * FROM '+db_config.tables.sites+' WHERE ID = '+req.params.id;
+	var query = 'SELECT * FROM '+db_config.views.sites+' WHERE ID = '+req.params.id;
 
 	var result;
 
@@ -53,6 +53,8 @@ router.get('/v1/sites/:id/:year?/:month?/:day?/', function(req,res) {
 				throw error.resourceNotFound.happens('No sites with matching id');
 			}
 
+
+			/* retrieve test sheets if year||month||day available */
 
 			result = rows;
 

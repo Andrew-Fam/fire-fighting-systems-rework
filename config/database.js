@@ -6,6 +6,9 @@ var dbconf = {
 	db_host : 'localhost',
 	tables : {
 		sites : 'site_list'
+	},
+	views : {
+		sites : 'sites_detail'
 	}
 };
 

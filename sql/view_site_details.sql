@@ -1,0 +1,1 @@
+select `sl`.`ID` AS `id`, `sl`.`PIN` AS `pin`,`sl`.`Number` AS `number`,`sl`.`Street` AS `street`,`st`.`type` AS `type`,`st`.`ID` AS `type_id`,`s`.`Suburb` AS `suburb`,`s`.`ID` AS `suburb_id` from ((`site_list` `sl` join `site_type` `st`) join `suburb` `s`) where ((`sl`.`SiteType` = `st`.`ID`) and (`sl`.`Suburb` = `s`.`ID`));

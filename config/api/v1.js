@@ -24,11 +24,11 @@ apiv1.sites.push({
 			desc : "A supposedly unique PIN associated with the site. This is used to match the site in FFS's database with DHS's own."
 		},
 		{
-			name : "site_type",
+			name : "type",
 			type : "string"
 		},
 		{
-			name : "site_type_id",
+			name : "type_id",
 			type : "int"
 		},
 		{
@@ -99,38 +99,38 @@ apiv1.sites.push({
 							type : "int"
 						}
 					]
+				},
+				{
+					name : "note",
+					type : "string",
+					desc : "Hand-added note that are not included in any other standard field"
+				},
+				{
+					name : "date",
+					type : "timestamp",
+					desc : "Date written on test sheet"
+				},
+				{
+					name : "date_created",
+					type : "timestamp",
+					desc : "Date entered into database"
+				},
+				{
+					name : "date_modified",
+					type : "timestamp",
+					desc : "Date last modified"
+				},
+				// {
+				// 	name : "sites",
+				// 	type : "array",
+				// 	desc : "id's of all sites associated with this testsheet"
+				// },
+				{
+					name : "scan_url",
+					type : "string",
+					desc : "Url to the scan image file"
 				}
 			]
-		},
-		{
-			name : "note",
-			type : "string",
-			desc : "Hand-added note that are not included in any other standard field"
-		},
-		{
-			name : "date",
-			type : "timestamp",
-			desc : "Date written on test sheet"
-		},
-		{
-			name : "date_created",
-			type : "timestamp",
-			desc : "Date entered into database"
-		},
-		{
-			name : "date_modified",
-			type : "timestamp",
-			desc : "Date last modified"
-		},
-		// {
-		// 	name : "sites",
-		// 	type : "array",
-		// 	desc : "id's of all sites associated with this testsheet"
-		// },
-		{
-			name : "scan_url",
-			type : "string",
-			desc : "Url to the scan image file"
 		}
 	]
 });

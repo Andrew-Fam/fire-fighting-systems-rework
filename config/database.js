@@ -1,5 +1,12 @@
 var dbconf = {
-	maxNumberOfConcurrentUsers : 10
+	connectionLimit : 20,
+	db_name : 'firefigh_database',
+	db_user : 'ffs_web_app',
+	db_pw : 'KwVXd8Sc862nTcat',
+	db_host : 'localhost',
+	tables : {
+		sites : 'site_list'
+	}
 };
 
 module.exports = dbconf;

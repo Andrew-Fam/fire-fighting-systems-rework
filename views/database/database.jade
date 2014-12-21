@@ -1,7 +1,10 @@
 extends ../layout
 
 block content
-  include ../includes/header.jade
+	div('ng-controller'="mainCtrl")
+		include ../includes/app/header.jade
+		include ../includes/app/site-list.jade
+		include ../includes/app/main-view.jade
 
 block scripts
-  script(type='text/javascript',src='/scripts/ffs.js')
+	script(type='text/javascript',src='/scripts/ffs.js')

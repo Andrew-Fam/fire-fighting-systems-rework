@@ -16,28 +16,27 @@ module.exports = function(grunt) {
 					compress: true,
 					sourceMap: true,
 					sourceMapFilename: 'public/css/ffs.css.map',
-					sourceMapURL: '/public/css/ffs.css.map',
+					sourceMapURL: '/css/ffs.css.map',
 					sourceMapRootpath: '/'
 				}
 			}
 		},
 		concat : {
 			options: {
-				separator: grunt.util.linefeed + ';' + grunt.util.linefeed,
-				stripBanners: {
-					block : true
-				}
+				separator: grunt.util.linefeed + ';' + grunt.util.linefeed
 			},
 			js: {
 				src: [
 					'bower_components/jquery/dist/jquery.js',
-					// 'bower_components/angularjs/angular.js',
-					// 'bower_components/velocity/velocity.js',
-					// 'bower_components/velicty/velocity.ui.js',
-					// 'public/scripts/controllers/*.js',
-					// 'public/scripts/directives/*.js',
-					// 'public/scripts/services/*.js',
-					// 'public/scripts/ffs-web-app.js'
+					'bower_components/angularjs/angular.js',
+					'bower_components/angular-animate/angular-animate.js',
+					'bower_components/angular-route/angular-route.js',
+					'bower_components/velocity/velocity.js',
+					'bower_components/velicty/velocity.ui.js',
+					'public/scripts/ffs-web-app.js',
+					'public/scripts/controllers/*.js',
+					'public/scripts/directives/*.js',
+					'public/scripts/services/*.js'
 				],
 				dest: 'public/scripts/ffs.js',
      			nonull: false
@@ -47,7 +46,7 @@ module.exports = function(grunt) {
 			js : {
 				options: {
 					singleline: true,
-					multiline: true
+					multiline: false
 				},
 				src: ['public/scripts/ffs.js']
 			}
@@ -67,9 +66,17 @@ module.exports = function(grunt) {
 				padding: 2
 			}
 		},
+		// copy: {
+		// 	api: {
+		// 		src : '/config/api/v1.js',
+		// 		dest : '/public/scripts/config/api/v1.js'
+		// 	}
+		// },
 		watch: {
 			styles: {
-				files: ['public/less/**/*.less'],
+				files: [
+					'public/less/*.less',
+					'public/less/ffs/*.less'],
 				tasks: ['less'],
 				options: {
 					livereload: true

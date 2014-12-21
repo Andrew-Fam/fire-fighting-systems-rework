@@ -30,6 +30,52 @@ router.get('/v1', function(req, res) {
 
 /* GET /api/v1/sites */
 
+router.get('/v1/sites/', function(req,res) {
+	console.log('Receive request for sites');
+
+	res.writeHead(200, {"Content-Type": "application/json"});
+
+	var query = 'SELECT * FROM '+db_config.views.sites;
+
+	var result;
+
+	console.log('Executed query: '+query);
+
+
+	db.query(query, function(err, rows, fields) {
+		try {
+			if (err) {
+				throw error.database.happens('Failed to query sites from database');
+			}
+
+			if (rows.length == 0) {
+				throw error.resourceNotFound.happens('There is no sites in the database. This should never happen. Contact technical immediately');
+			}
+
+
+			/* retrieve test sheets if year||month||day available */
+
+			result = rows;
+
+		} catch (error) {
+			console.error(color.red("Error occured: "+error.type+":"+error.message));
+			result = error;
+		} finally {
+
+			if(result===undefined) {
+				result = error.responseNotInitialized.happens("Either the developer haven't yet completed this function or something sneakily failed.");
+			}
+
+			var response = JSON.stringify(result);
+
+			
+
+			res.end(response);
+		}
+
+	});
+});
+
 router.get('/v1/sites/:id/:year?/:month?/:day?/', function(req,res) {
 	console.log('Receive request for site with id '+req.params.id+' and data from '+req.params.day+'/'+req.params.month+'/'+req.params.year);
 	
@@ -41,7 +87,6 @@ router.get('/v1/sites/:id/:year?/:month?/:day?/', function(req,res) {
 	var result;
 
 	console.log('Executed query: '+query);
-
 
 	db.query(query, function(err, rows, fields) {
 		try {
@@ -75,10 +120,6 @@ router.get('/v1/sites/:id/:year?/:month?/:day?/', function(req,res) {
 		}
 
 	});
-	
 });
-
-
-
 
 module.exports = router;

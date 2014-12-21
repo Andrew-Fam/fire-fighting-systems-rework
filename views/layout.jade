@@ -1,8 +1,9 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/css/ffs.css')
-  body
-    block content
-    block scripts
+	head
+		title= title
+		link(rel='stylesheet', href='/css/ffs.css')
+	body('ng-app'='ffsApp')
+		base(href="/database")
+		block content
+		block scripts

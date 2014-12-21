@@ -4,14 +4,14 @@ var apiv1= {};
 
 apiv1 = {};
 
-apiv1.sites = [];
+apiv1.sites = {};
 
-apiv1.sites.push({
+apiv1.sites.get_site_by_id = {
 	id : "v1-get-site-by-id",
 	action : "GET",
 	url : "/api/v1/sites/",
 	syntax : "/api/v1/sites/{id}/{year}/{month}/{day}",
-	desc : "Retrieve info of a site matching {id}. [optional] {year}/{month}/{day} will limit the time range from which testsheets will be retrieved.",
+	desc : "Retrieve info of a site if {id} is provided, otherwise, return all sites. [optional] {year}/{month}/{day} will limit the time range from which testsheets will be retrieved.",
 	fields : [
 		{
 			name : "id",
@@ -69,7 +69,7 @@ apiv1.sites.push({
 		{
 			name : "testsheets",
 			type : "array",
-			desc : "Return all testsheets associated with this site by default. Can be limited by adding {year}/{month}/{day} to url",
+			desc : "NOTE: This field is currently not in scope. <br/> All testsheets associated with this site by default. Can be limited by adding {year}/{month}/{day} to url",
 			fields : [
 				{
 					name : "id",
@@ -133,7 +133,7 @@ apiv1.sites.push({
 			]
 		}
 	]
-});
+};
 
 
 

@@ -2,10 +2,30 @@
 	padding: @padding;
 	background-color: @header-bg;
 	color: @header-fg;
+	font-size: @font-size;
+
+	.clearfix();
+
 	.title {
-		font-size: 18px;
+		font-size: @font-size*1.125;
 		font-weight: 700;
 		line-height: 1em;
 		letter-spacing: 0.05em;
+	}
+	a {
+		color: white;
+		font-size: @btn-font-size;
+		&:hover {
+			color: white;
+			border-bottom-color: @default-color;
+		}
+	}
+	.controls {
+		display: inline-block;
+		margin-left: 180px;
+		.control {
+			.disable-double-click-highlight();
+			margin-right: @font-size*3.125;
+		}
 	}
 }

@@ -3,6 +3,7 @@
 	background-color: @header-bg;
 	color: @header-fg;
 	font-size: @font-size;
+	margin-bottom: @grid-gutter-width*1.5;
 
 	.clearfix();
 
@@ -20,12 +21,15 @@
 			border-bottom-color: @default-color;
 		}
 	}
+
 	.controls {
+		line-height: 1em;
+		letter-spacing: 0.05em;
+		font-weight: 700;
 		display: inline-block;
-		margin-left: 180px;
 		.control {
 			.disable-double-click-highlight();
-			margin-right: @font-size*3.125;
+			margin-right: @font-size*2.125;
 		}
 	}
 }

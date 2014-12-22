@@ -8,7 +8,8 @@ var dbconf = {
 		sites : 'site_list'
 	},
 	views : {
-		sites : 'sites_detail'
+		sites : 'sites_detail',
+		searchables : 'searchables'
 	}
 };
 

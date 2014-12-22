@@ -1,3 +1,46 @@
-div('ng-controller'='siteListCtrl')
-	div.site-list('ng-repeat'='site in sites')
-		| {{site.pin}} {{site.number}} {{site.street}} {{site.suburb}}
+div.site-list('ng-controller'='siteListCtrl','ng-cloak')
+	div.search-field
+		input.form-control(placeholder='Enter keyword...',type='text',ng-keyup="updateSearchTerm();" ng-model="tempSearchTerm",typeahead="keyword.term for keyword in searchables | filter:$viewValue | limitTo:6", typeahead-focus-first="false")
+		span.icon-search
+	div.clearfix
+
+		div.sort-control.order
+			label(for='order-site-by')
+				|Order: 
+			span.dropdown(dropdown,id='sort-site-by')
+				a.dropdown-toggle(dropdown-toggle)
+					| {{orderToSortBy}} 
+					span.icon-arrow-down
+				ul.dropdown-menu
+					li(ng-repeat="order in ordersToSortBy",ng-click="orderBy(order)")
+						{{order}}
+		div.sort-control
+			label(for='sort-site-by')
+				|Sort by: 
+			span.dropdown(dropdown,id='sort-site-by')
+				a.dropdown-toggle(dropdown-toggle)
+					| {{fieldToSortBy.name}} 
+					span.icon-arrow-down
+				ul.dropdown-menu
+					li(ng-repeat="field in fieldsToSortBy",ng-click="sortBy(field)")
+						{{field.name}}
+	ul.list-group.sites
+		li.list-grooup-item.site('ng-repeat'='site in filteredSites = (sites | filter: searchTerm)')
+			div.col-xs-2
+				div.site-number
+				|{{site.number}} 
+			div.col-xs-6
+				div.site-street
+					|{{site.street}}
+				div.site-suburb
+					|{{site.suburb}}
+			div.col-xs-4.clearfix
+				div.site-type
+					|{{site.type}}
+				div.site-pin
+					|{{site.pin}}
+	div.clearfix
+		div.sites-count
+			| {{filteredSites.length}} Results
+		div.btn.btn-primary.btn-solid.pull-right
+			| ADD SITE

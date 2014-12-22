@@ -122,4 +122,53 @@ router.get('/v1/sites/:id/:year?/:month?/:day?/', function(req,res) {
 	});
 });
 
+
+/* GET /api/v1/search/searchables */
+
+router.get('/v1/search/searchables/', function(req,res) {
+	console.log('Receive request for searchable key terms');
+
+	res.writeHead(200, {"Content-Type": "application/json"});
+
+	var query = 'SELECT * FROM '+db_config.views.searchables;
+
+	var result;
+
+	console.log('Executed query: '+query);
+
+
+	db.query(query, function(err, rows, fields) {
+		try {
+			if (err) {
+				throw error.database.happens('Failed to query searchables from database');
+			}
+
+			if (rows.length == 0) {
+				throw error.resourceNotFound.happens('There is no searchable terms in the database. This should never happen. Contact technical immediately');
+			}
+
+
+			/* retrieve test sheets if year||month||day available */
+
+			result = rows;
+
+		} catch (error) {
+			console.error(color.red("Error occured: "+error.type+":"+error.message));
+			result = error;
+		} finally {
+
+			if(result===undefined) {
+				result = error.responseNotInitialized.happens("Either the developer haven't yet completed this function or something sneakily failed.");
+			}
+
+			var response = JSON.stringify(result);
+
+			
+
+			res.end(response);
+		}
+
+	});
+});
+
 module.exports = router;

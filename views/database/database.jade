@@ -3,8 +3,12 @@ extends ../layout
 block content
 	div('ng-controller'="mainCtrl")
 		include ../includes/app/header.jade
-		include ../includes/app/site-list.jade
-		include ../includes/app/main-view.jade
+		div.container-fluid
+			div.row
+				div.col-xs-4
+					include ../includes/app/site-list.jade
+				div.col-xs-8
+					include ../includes/app/main-view.jade
 
 block scripts
 	script(type='text/javascript',src='/scripts/ffs.js')

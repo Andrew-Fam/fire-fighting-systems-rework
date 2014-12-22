@@ -26,3 +26,24 @@
 @btn-primary-color: @emphasize-color;
 
 @anchor-padding-bottom: 0.25em;
+
+//** Default `.form-control` border radius
+@input-border-radius:            @border-radius-base*100;
+//** Large `.form-control` border radius
+@input-border-radius-large:      @input-border-radius;
+//** Small `.form-control` border radius
+@input-border-radius-small:      @input-border-radius;
+
+//** Border color for inputs on focus
+@input-border-focus:             #3FBBE5;
+
+@form-control-padding-h: @grid-gutter-width;
+
+@typeahead-item-padding-h: @grid-gutter-width - 15px;
+@typeahead-menu-margin-left: @form-control-padding-h - @typeahead-item-padding-h;
+@typeahead-menu-radius-top: 5px;
+@typeahead-menu-radius-bottom: 7px;
+@typeahead-menu-radius: @typeahead-menu-radius-top @typeahead-menu-radius-top @typeahead-menu-radius-bottom @typeahead-menu-radius-bottom;
+
+@tooltip-bg:                  #1E1F20;
+@tooltip-arrow-color:         @tooltip-bg;

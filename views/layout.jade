@@ -3,6 +3,10 @@ html
 	head
 		title= title
 		link(rel='stylesheet', href='/css/ffs.css')
+		style
+			| [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+			|	  display: none !important;
+			|	}
 	body('ng-app'='ffsApp')
 		base(href="/database")
 		block content

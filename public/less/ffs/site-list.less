@@ -1,0 +1,103 @@
+.site-list {
+	.sort-control {
+		margin-top: 14px;
+		margin-right: 0px;
+		&:first-child {
+			margin-right: 4px;
+		}
+		float: right;
+		label {
+			font-size: 14px;
+			font-weight: 700;
+			color: #575860;
+			margin-right: 17px;
+		}
+		.dropdown-toggle {
+			cursor: pointer;
+			font-size: 14px;
+			color: white;
+			font-weight: 700;
+			width: 6em;
+			position: relative;
+			[class^="icon-"], [class*=" icon-"] {
+				vertical-align: middle;
+			}
+			&:hover {
+				border: none;
+				text-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+			}
+		}
+
+		&.order {
+			.dropdown-toggle {
+				width: 4em;
+			}
+		}
+	}
+
+	.sites {
+		margin-top: @grid-gutter-width;
+		position: relative;
+		max-height: 400px;
+		overflow: auto;
+		.site {
+			cursor: pointer!important;
+			padding: @grid-gutter-width/2;
+			border-top: 1px solid #323438;
+			border-bottom: 1px solid #17181A;
+			position: relative;
+			.clearfix();
+			.site-type {
+				font-size: 16px;
+				text-transform: uppercase;
+				font-weight: 700;
+				color: #4b4f5d;
+				text-align: right;
+			}
+			.site-pin {
+				font-size: 16px;
+				color: #dadada;
+				font-weight: 400;
+				text-align: right;
+			}
+			.site-number,
+			.site-street {
+				font-size: 16px;
+				font-weight: 400px;
+				color: #dadada;
+			}
+
+			.site-suburb {
+				font-weight: 900;
+				font-size: 16px;
+				color: #666666;
+			}
+
+			&:hover,
+			&.active {
+				background-color: #2a2a2d;
+
+				.site-type {
+					color: #828693;
+				}
+
+				.site-suburb {
+					color: #dadada;
+				}
+			}
+
+			&:active {
+				position: relative;
+				border-top: 2px solid #2a2a2d;
+				border-bottom: none;
+			}
+		}
+	}
+	.sites-count {
+		font-weight: 700;
+		font-size: 14px;
+		color: #575860;
+		float: left;
+		margin-left: @grid-gutter-width;
+	}
+}

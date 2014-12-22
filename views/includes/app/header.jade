@@ -1,15 +1,16 @@
-div.header
-	div.title
-		| FIRE FIGHTING SYSTEMS
-		div.controls
+div.header.container-fluid
+	div.row
+		div.title.col-xs-4
+			| FIRE FIGHTING SYSTEMS
+		div.controls.col-xs-8
 			a.control(href="calendar")
 				| Calendar
 			a.control(href="file-manager")
-				| File Manager
+				| Tests Manager
 			a.control(href="equipments")
 				| Equipments
 
-			div.control.btn.btn-outline.btn-primary
+			div.control.btn.btn-outline.btn-primary(tooltip-placement="bottom",tooltip="Upload multiple test sheets at once")
 				| BULK UPLOAD
 			div.control.btn.btn-outline
 				| LOGOUT

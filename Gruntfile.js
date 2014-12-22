@@ -31,6 +31,7 @@ module.exports = function(grunt) {
 					'bower_components/angularjs/angular.js',
 					'bower_components/angular-animate/angular-animate.js',
 					'bower_components/angular-route/angular-route.js',
+					'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
 					'bower_components/velocity/velocity.js',
 					'bower_components/velicty/velocity.ui.js',
 					'public/scripts/ffs-web-app.js',
@@ -100,5 +101,5 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('dev', ['sprite', 'less', 'concat','comments','watch']);
-	grunt.registerTask('build', ['sprite', 'less', 'concat','comments','uglify','watch']);
+	grunt.registerTask('build', ['sprite', 'less', 'concat','comments','uglify']);
 };

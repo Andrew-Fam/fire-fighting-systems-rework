@@ -3,14 +3,16 @@ div.header.container-fluid
 		div.title.col-xs-4
 			| FIRE FIGHTING SYSTEMS
 		div.controls.col-xs-8
-			a.control(href="calendar")
+			a.control(href="database/calendar",tooltip-placement="bottom",tooltip="The default view with a site list and test calendar")
 				| Calendar
-			a.control(href="file-manager")
-				| Tests Manager
-			a.control(href="equipments")
+			a.control(href="database/file-manager",tooltip-placement="bottom",tooltip="View all your uploaded scans in a list to easily spot duplicated or missing uploads")
+				| Upload Manager
+			a.control(href="database/equipments")
 				| Equipments
 
 			div.control.btn.btn-outline.btn-primary(tooltip-placement="bottom",tooltip="Upload multiple test sheets at once")
 				| BULK UPLOAD
+			div.control.btn.btn-outline.btn-primary(tooltip-placement="bottom",tooltip="Generate detail report on site(s)")
+				| REPORT
 			div.control.btn.btn-outline
 				| LOGOUT

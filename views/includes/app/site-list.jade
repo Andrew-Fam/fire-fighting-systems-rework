@@ -9,11 +9,12 @@ div.site-list('ng-controller'='siteListCtrl','ng-cloak')
 				|Order: 
 			span.dropdown(dropdown,id='sort-site-by')
 				a.dropdown-toggle(dropdown-toggle)
-					| {{orderToSortBy}} 
+					| {{orderToSortBy.name}} 
 					span.icon-arrow-down
 				ul.dropdown-menu
 					li(ng-repeat="order in ordersToSortBy",ng-click="orderBy(order)")
-						{{order}}
+						a 
+							{{order.name}}
 		div.sort-control
 			label(for='sort-site-by')
 				|Sort by: 
@@ -23,9 +24,10 @@ div.site-list('ng-controller'='siteListCtrl','ng-cloak')
 					span.icon-arrow-down
 				ul.dropdown-menu
 					li(ng-repeat="field in fieldsToSortBy",ng-click="sortBy(field)")
-						{{field.name}}
+						a
+							{{field.name}}
 	ul.list-group.sites
-		li.list-grooup-item.site('ng-repeat'='site in filteredSites = (sites | filter: searchTerm)')
+		li.list-grooup-item.site('ng-repeat'='site in filteredSites = (sites | filter: searchTerm) | orderBy: fieldToSortBy.id:orderToSortBy.reverse','ng-click'='selectSite(site)','ng-class'="{'active':site.selected}")
 			div.col-xs-2
 				div.site-number
 				|{{site.number}} 

@@ -135,6 +135,25 @@ apiv1.sites.get_site_by_id = {
 	]
 };
 
+apiv1.testsheets = {};
+
+apiv1.testsheets.get_test_sheet_by_site_id = {
+	id : "v1-get-test-sheet-by-site-id",
+	action : "GET",
+	url : "/api/v1/testsheets/?site={id}&year={year}&={month}",
+	syntax : "/api/v1/testsheets/?site={id}",
+	desc : "Retrieve all test sheets associated with the site with the provided id. Use query \"year\" and \"month\" to get testsheets int hat month only."
+}
+
+
+apiv1.testsheets.get_test_sheet_types = {
+	id : "v1-get-test-sheet-types",
+	action : "GET",
+	url : "/api/v1/testsheets/types/",
+	syntax : "/api/v1/testsheets/types/",
+	desc : "Retrieve all test sheet types"
+}
+
 
 
 

@@ -1,0 +1,54 @@
+<div ng-controller="siteListCtrl" ng-cloak class="site-list">
+	<div class="search-field">
+		<input placeholder="Enter keyword..." type="text" ng-keyup="updateSearchTerm();" ng-model="tempSearchTerm" typeahead="keyword.term for keyword in searchables | filter:$viewValue | limitTo:6" typeahead-focus-first="false" class="form-control"><span class="icon-search"></span>
+	</div>
+	<div class="clearfix">
+		<div class="sort-control order">
+			<label for="order-site-by">Order: </label><span dropdown id="sort-site-by" class="dropdown"><a dropdown-toggle class="dropdown-toggle">{{orderToSortBy.name}} <span class="icon-arrow-down"></span></a>
+			<ul class="dropdown-menu">
+				<li ng-repeat="order in ordersToSortBy" ng-click="orderBy(order)"><a> {{order.name}}</a></li>
+			</ul>
+			</span>
+		</div>
+		<div class="sort-control">
+			<label for="sort-site-by">Sort by: </label><span dropdown id="sort-site-by" class="dropdown"><a dropdown-toggle class="dropdown-toggle">{{fieldToSortBy.name}} <span class="icon-arrow-down"></span></a>
+			<ul class="dropdown-menu">
+				<li ng-repeat="field in fieldsToSortBy" ng-click="sortBy(field)"><a>{{field.name}}</a></li>
+			</ul>
+			</span>
+		</div>
+	</div>
+	<ul class="list-group sites">
+		<li ng-repeat="site in filteredSites = (sites | filter: searchTerm) | orderBy: fieldToSortBy.id:orderToSortBy.reverse" ng-click="selectSite(site)" ng-class="{'active':site.selected}" class="list-grooup-item site">
+		<div class="col-xs-2">
+			<div class="site-number">
+			</div>
+			{{site.number}}
+		</div>
+		<div class="col-xs-6">
+			<div class="site-street">
+				{{site.street}}
+			</div>
+			<div class="site-suburb">
+				{{site.suburb}}
+			</div>
+		</div>
+		<div class="col-xs-4 clearfix">
+			<div class="site-type">
+				{{site.type}}
+			</div>
+			<div class="site-pin">
+				{{site.pin}}
+			</div>
+		</div>
+		</li>
+	</ul>
+	<div class="clearfix">
+		<div class="sites-count">
+			{{filteredSites.length}} Results
+		</div>
+		<div class="btn btn-primary btn-solid pull-right">
+			ADD SITE
+		</div>
+	</div>
+</div>

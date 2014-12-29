@@ -1,0 +1,30 @@
+.switch {
+	.clearfix();
+	.switch-half {
+		cursor: pointer;
+		display: block;
+		float: left;
+		.disable-double-click-highlight();
+		position: relative;
+		font-size: 14px;
+		top: -2px;
+		border-bottom: 4px solid darken(@switch-bg,12%);
+		padding: @switch-padding @switch-padding*2;
+		background-color: lighten(@switch-bg,5%);
+		&:first-child {
+			border-radius: 1000px 0px 0px 1000px;
+			padding-left: @switch-padding*3;
+			border-right: 1px solid darken(@switch-bg,4%);
+		}
+		&:last-child {
+			border-radius: 0px 1000px 1000px 0px ;
+			padding-right: @switch-padding*3;
+			border-left: 1px solid #2F2F35;
+		}
+		&.active {
+			top: 0;
+			border-bottom: 2px solid darken(@switch-bg,12%);
+			background-color: @switch-bg;
+		}
+	}
+}

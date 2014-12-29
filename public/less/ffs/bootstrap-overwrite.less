@@ -12,3 +12,38 @@
 	padding: 10px 15px;
 	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
 }
+
+.dropdown-menu {
+	//padding: @grid-gutter-width/2;
+	padding: 0;
+	overflow: hidden;
+	> li {
+		padding: 0;
+		margin: 0;
+		> a {
+			cursor: pointer;
+			color: @default-color;
+			padding: @grid-gutter-width/4 @grid-gutter-width/2;
+		}
+
+		&:hover {
+			> a {
+				border: none;
+				color: white;
+				background-color: #4b4f5d;
+			}
+		}
+
+		&:first-child {
+			> a {
+				padding-top: @grid-gutter-width/2;
+			}
+		}
+
+		&:last-child {
+			> a {
+				padding-bottom: @grid-gutter-width/2;
+			}
+		}
+	}
+}

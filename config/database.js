@@ -5,7 +5,10 @@ var dbconf = {
 	db_pw : 'KwVXd8Sc862nTcat',
 	db_host : 'localhost',
 	tables : {
-		sites : 'site_list'
+		sites : 'site_list',
+		test_sheets : 'reports',
+		test_sheet_types : 'report_type',
+		r_sites_test_sheets: 'report_site_relation'
 	},
 	views : {
 		sites : 'sites_detail',

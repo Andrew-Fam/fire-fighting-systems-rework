@@ -13,19 +13,9 @@
 			margin-right: 17px;
 		}
 		.dropdown-toggle {
-			cursor: pointer;
-			font-size: 14px;
-			color: white;
-			font-weight: 700;
 			width: 6em;
 			position: relative;
-			[class^="icon-"], [class*=" icon-"] {
-				vertical-align: middle;
-			}
-			&:hover {
-				border: none;
-				text-shadow: 0px 0px 2px rgba(0,0,0,0.2);
-			}
+			font-size: 14px;
 		}
 
 		&.order {
@@ -36,7 +26,7 @@
 	}
 
 	.sites {
-		margin-top: @grid-gutter-width;
+		margin-top: 10px;
 		position: relative;
 		max-height: 400px;
 		overflow: auto;
@@ -84,6 +74,12 @@
 				.site-suburb {
 					color: #dadada;
 				}
+			}
+
+			&.active {
+				border-top: 2px solid #2a2a2d;
+				border-bottom: none;
+				border-color: #2a2a2d;
 			}
 
 			&:active {

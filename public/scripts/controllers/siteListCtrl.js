@@ -1,4 +1,4 @@
-/* main controller*/
+/* site List controller*/
 
 
 
@@ -45,8 +45,14 @@ app.controller('siteListCtrl', ['$scope','$rootScope','$timeout','$route', '$rou
     	}
 
     	$scope.ordersToSortBy = [
-    		'ASC',
-    		'DESC'
+    		{
+                name: 'ASC',
+                reverse: false
+            },
+            {
+                name: 'DESC',
+                reverse: true
+            }
     	];
 
     	$scope.orderToSortBy = $scope.ordersToSortBy[0];
@@ -70,6 +76,14 @@ app.controller('siteListCtrl', ['$scope','$rootScope','$timeout','$route', '$rou
     	
     	}
 
+
+        $scope.selectSite = function(site) {
+            site.selected = true;
+            if($rootScope.selectedSite) {
+                $rootScope.selectedSite.selected = false;
+            }
+            $rootScope.selectedSite = site;
+        }
 
 
 	}

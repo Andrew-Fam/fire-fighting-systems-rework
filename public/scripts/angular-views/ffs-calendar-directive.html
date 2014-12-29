@@ -1,0 +1,70 @@
+<div class="ffs-calendar">
+	<div class="ffs-calendar-controls clearfix">
+		<div class="site-info">
+			<span ng-show="site">
+				<span class="icon-location"></span>
+				{{site.number}} {{site.street}}, {{site.suburb}} <span class="uppercase site-type">{{site.type}}</span>
+			</span>
+			<span ng-hide="site">
+				No site selected
+			</span>
+			<span class="calendar-pickers clearfix">
+				<span class="dropdown calendar-picker year-picker" dropdown id='ffs-calendar-year'>
+					<a class="dropdown-toggle" dropdown-toggle>
+						{{selectedYear}}
+						<span class="icon-arrow-down"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li ng-repeat="year in years" ng-click="selectYear(year)" ng-class="{'active':year == selectedYear}">
+							<a> 
+								{{year}}
+							</a>
+						</li>
+					</ul>
+				</span>
+				<span class="dropdown calendar-picker month-picker" ng-show="currentView == monthly" dropdown id='ffs-calendar-month'>
+					<a class="dropdown-toggle uppercase" dropdown-toggle>
+						{{selectedMonth.abbr}}
+						<span class="icon-arrow-down"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li ng-repeat="month in months" ng-click="selectMonth(month)" ng-class="{'active': month == selectedMonth}">
+							<a> 
+								{{month.name}}
+							</a>
+						</li>
+					</ul>
+				</span>
+			</span>
+		</div>
+	</div>
+	<div class="week">
+		<div class="day" ng-class="{'off':day.name=='Sun' || day.name=='Sat'}" ng-repeat="day in daysOfWeek">
+			{{day.name}}
+		</div>
+	</div>
+	<div class="days-wrapper">
+		<div class="days">
+			<div class="week" ng-repeat="week in weeks">
+				<div class="day" ng-repeat="day in week" ng-class="{ 'not-this-month': !day.thisMonth, 'today' : day.today, 'has-test' : organizedTestSheets[day.year+'-'+day.month+'-'+day.date].length }">
+					{{day.date}}
+					<div class="test" ng-repeat="sheet in organizedTestSheets[day.year+'-'+day.month+'-'+day.date]">
+						<span class="test-number">{{sheet.test_sheet_number}}</span> 
+						<span class="test-type">
+							<span class="short">
+								{{types[sheet.type_pk+''].short_type}}
+							</span>
+							<span class="full">
+								{{types[sheet.type_pk+''].type}}
+							</span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<span class="view-switches switch">
+		<span class="view-switch switch-half" ng-click="currentView = monthly" ng-class="{'active': currentView == monthly}">Monthly</span>
+		<span class="view-switch switch-half" ng-click="currentView = yearly" ng-class="{'active': currentView == yearly}">Yearly</span>
+	</span>
+</div>

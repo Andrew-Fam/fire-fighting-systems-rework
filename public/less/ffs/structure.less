@@ -1,3 +1,30 @@
 body {
-	min-width: 1240px;
+	min-width: 1366px;
+}
+.app-wrapper {
+	padding: @grid-gutter-width;
+	margin-top: @grid-gutter-width/2;
+}
+.app-view {
+	position: relative;
+	background: none;
+	width: 100%;
+    border-collapse: separate;
+	.side-bar {
+		vertical-align: top;
+		background: none;
+		width: 33.3333333%;
+		padding-right: @grid-gutter-width;
+		// border-right: 1px solid #17181A;
+	}
+	.main-view {
+		border-radius: 23px;
+		vertical-align: top;
+		background: none;
+		position: relative;
+		width: 66.6666664%;
+		padding-left: @grid-gutter-width;
+		padding-right: @grid-gutter-width;
+		// border-left: 1px solid #323438;
+	}
 }

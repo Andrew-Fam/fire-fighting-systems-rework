@@ -28,6 +28,7 @@ module.exports = function(grunt) {
 			js: {
 				src: [
 					'bower_components/jquery/dist/jquery.js',
+					'bower_components/moment/min/moment.min.js',
 					'bower_components/angularjs/angular.js',
 					'bower_components/angular-animate/angular-animate.js',
 					'bower_components/angular-route/angular-route.js',

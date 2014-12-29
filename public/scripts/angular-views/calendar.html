@@ -1,0 +1,25 @@
+
+	<table class="app-view">
+		<tr>
+			<td class="side-bar">
+				<div ng-include="'/scripts/angular-views/site-list.html'">
+				</div>
+			</td>
+			<td class="main-view">
+				<div class="site-view calendar-view">
+					<div vCenter>
+						<div ffs-calendar selected-month="selectedMonth" selected-year="selectedYear" site="site" test-sheets="testSheets" types="testSheetTypes">
+							
+						</div>
+						<div ng-hide="site" class="no-site-overlay">
+							<div v-center>
+								<h1>
+								<span class="icon-arrow-left"></span>Please select a site
+								</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>

@@ -67,4 +67,7 @@
 		<span class="view-switch switch-half" ng-click="currentView = monthly" ng-class="{'active': currentView == monthly}">Monthly</span>
 		<span class="view-switch switch-half" ng-click="currentView = yearly" ng-class="{'active': currentView == yearly}">Yearly</span>
 	</span>
+	<span class="calendar-sub-controls">
+		Total: {{testSheets.length}} test sheet{{testSheets.length>1?'s':''}}
+	</span>
 </div>
